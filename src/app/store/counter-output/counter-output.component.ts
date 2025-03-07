@@ -19,16 +19,17 @@ number = 1
 
   constructor(private store:Store<{counter:number}>){
 this.count$ = store.select('counter')
-
   }
 
 increment(){
- this.store.dispatch(increment())
+  console.log(`before increment dispatching value : ${this.number}`)
+ this.store.dispatch(increment({ value: this.number }))
    
   }
 
 decrement(){
- this.store.dispatch(decrement())
+  console.log(`before decrement dispatching value : ${this.number}`)
+ this.store.dispatch(decrement({ value: this.number }))
 }
 
 ngOnInit(): void {
